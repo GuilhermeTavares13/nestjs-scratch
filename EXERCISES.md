@@ -84,6 +84,8 @@ This is the most important exercise.
 **Question to answer in your session:** where do providers get registered, and why does
 constructor injection work without you calling `new UsersService()`?
 
+Answer: the providers must be registered in the app.module.ts, the constructor injection work because the private keyword is TypeScript parameter property, it automatically declares a usersService a member on the class and assigns the constructor argument to it.
+
 ## Exercise 5 — DTOs
 
 Create a class `CreateUserDto` (in `src/dto/create-user.dto.ts` or similar) with typed fields
@@ -94,6 +96,8 @@ Create a class `CreateUserDto` (in `src/dto/create-user.dto.ts` or similar) with
 inside the method is `CreateUserDto`.
 
 **Question:** what is a DTO and why don't we pass raw `any` bodies around?
+
+Answer: DTO stands for Data Transfer Object, they are object to encapsulate data. In this case we don't pass raw data bodies around for organization.
 
 ## Exercise 6 — A separate feature module
 

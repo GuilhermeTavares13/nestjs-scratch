@@ -1,7 +1,11 @@
 import { Controller, Get, Post, Put, Patch, Delete , Param, Query, Body } from '@nestjs/common'
+import { UsersService } from './users/users.service';
+import CreateUserDto from './dto/create-user.dto';
 
 @Controller("/api") // decorator
 export class AppController {
+
+    constructor(private usersService: UsersService) {}
 
     @Get("/hi")
     getRootRoute() {
@@ -31,24 +35,5 @@ export class AppController {
     @Delete("/message")
     deleteMessage() {
         return "deleted";
-    }
-
-    @Get("/users/:id")
-    getUserId(@Param('id') id: Number) {
-        return `user ${id}`
-    }
-
-    @Get("/users")
-    getUserName(@Query('name') name: string) {
-        if (!name) {
-            return "All users"
-        }
-
-        return name;
-    }
-
-    @Post("/users")
-    postUser(@Body() body: Body) {
-        return body;
     }
 }
